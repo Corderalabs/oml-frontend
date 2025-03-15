@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import Hero from "./(components)/Hero";
+import Vision from "./(components)/Vision";
 
 export default function AboutUs() {
   return (
-    <div>AboutUs</div>
-  )
+    <div>
+      <Hero />
+      <Vision />
+    </div>
+  );
 }

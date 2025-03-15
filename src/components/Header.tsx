@@ -9,10 +9,10 @@ const Header = () => {
         <Logo />
         <nav className='hidden md:flex space-x-10 text-sm'>
           <Link href='#'>Home</Link>
-          <Link href='#'>About Us</Link>
+          <Link href='/about-us'>About Us</Link>
           <Link href='#'>Our Projects</Link>
           <Link href='#'>FAQs</Link>
-          <Link href='#'>Contact Us</Link>
+          <Link href='/contact'>Contact Us</Link>
           <Link href='#' className=''>
             Track Investment
           </Link>
