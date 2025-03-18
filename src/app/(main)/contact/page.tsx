@@ -4,6 +4,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { BiPhone } from "react-icons/bi";
 import { CgMail } from "react-icons/cg";
+import { FaWhatsapp } from "react-icons/fa";
 import { z } from "zod";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
@@ -32,131 +33,139 @@ export default function Contact() {
     reset();
   };
   return (
-    <div className='bg-white min-h-screen text-black relative pb-[300px]'>
-      <div className='bg-[#E9EDFB] h-[300px] flex flex-col justify-center'>
-        {" "}
-        <div className='max-w-4xl mx-auto text-center text-black'>
-          <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold leading-tight'>
-            We&apos;d love to hear from you. Get in touch
-          </h2>
-          <p className='mt-4 text-[#122231] text-sm md:text-base'>
-            A member of the team will reach out to you as oon as possible
-          </p>
+    <div className='h-full text-black'>
+      <div className="bg-[#EFF6FF] h-[390px] flex justify-center w-full">
+        <div className="flex flex-col gap-7 text-center pt-20">
+          <p className="font-bold text-4xl">We’d love to hear from you. Get in touch</p>
+          <p className="text-lg font-medium">A member of the team will reach out to you as oon as possible</p>
         </div>
       </div>
-      <div className='z-0 absolute top-[200px] left-1/2 transform -translate-x-1/2 w-full max-w-lg mx-auto p-6  flex flex-col gap-4'>
-        <div className='w-full p-6 bg-white rounded-md shadow-md flex flex-col gap-6'>
-          <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
-            {/* Full Name */}
-            <div>
-              <label className='block text-gray-600 text-sm font-medium'>
-                Full Name
-              </label>
-              <input
-                {...register("fullName")}
-                type='text'
-                placeholder='Enter your full name'
-                className='w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500'
-              />
-              {errors.fullName && (
-                <p className='text-red-500 text-sm mt-1'>
-                  {errors.fullName.message}
-                </p>
-              )}
-            </div>
 
-            {/* Email Address */}
-            <div>
-              <label className='block text-gray-600 text-sm font-medium'>
-                Email Address
-              </label>
-              <input
-                {...register("email")}
-                type='email'
-                placeholder='Enter email address'
-                className='w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500'
-              />
-              {errors.email && (
-                <p className='text-red-500 text-sm mt-1'>
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label className='block text-gray-600 text-sm font-medium'>
-                Phone Number
-              </label>
-              <Controller
-                name='phone'
-                control={control}
-                render={({ field }) => (
-                  <PhoneInput
-                    {...field}
-                    defaultCountry='NG'
-                    placeholder='Enter phone number'
-                    className='w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500'
+      <div className="relative">
+        <div className="w-full absolute -top-32">
+          <div className="w-6/12 mx-auto bg-white rounded-xl">
+            <form onSubmit={handleSubmit(onSubmit)} className="p-10">
+              <div className="grid gap-4">
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Full Name</p>
+                  <Controller
+                    control={control}
+                    name="fullName"
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <div className="relative">
+                        <input
+                          value={value}
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600"
+                          type="text"
+                          placeholder="Enter your full name"
+                          onChange={onChange}
+                        />
+                        {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>}
+                      </div>
+                    )}
                   />
-                )}
-              />
-              {errors.phone && (
-                <p className='text-red-500 text-sm mt-1'>
-                  {errors.phone.message}
-                </p>
-              )}
-            </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Email Address</p>
+                  <Controller
+                    control={control}
+                    name="email"
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <div className="relative">
+                        <input
+                          value={value}
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600"
+                          type="text"
+                          placeholder="Enter email address"
+                          onChange={onChange}
+                        />
+                        {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>}
+                      </div>
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Phone Number</p>
+                  <Controller
+                    control={control}
+                    name="phone"
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <div className="relative">
+                        <input
+                          value={value}
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600"
+                          type="text"
+                          placeholder="Enter phone number"
+                          onChange={onChange}
+                        />
+                        {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>}
+                      </div>
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Message</p>
+                  <Controller
+                    control={control}
+                    name="message"
+                    render={({ field: { onChange, onBlur, value } }) => (
+                      <div className="relative">
+                        <textarea
+                          value={value}
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600"
+                          placeholder="How can we help you?"
+                          onChange={onChange}
+                        />
+                        {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>}
+                      </div>
+                    )}
+                  />
+                </div>
+                
 
-            {/* Message */}
-            <div>
-              <label className='block text-gray-600 text-sm font-medium'>
-                Message
-              </label>
-              <textarea
-                {...register("message")}
-                rows={4}
-                placeholder='How can we help you?'
-                className='w-full p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500'
-              ></textarea>
-              {errors.message && (
-                <p className='text-red-500 text-sm mt-1'>
-                  {errors.message.message}
-                </p>
-              )}
-            </div>
-            <div className='w-1/2 md:w-1/3 mx-auto'>
-              {/* Submit Button */}
-              <button
-                type='submit'
-                className='w-full mx-auto bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition'
-              >
-                Send message
-              </button>
-            </div>
-          </form>
+                <div className="flex justify-center">
+                  <button className="bg-[#1D4ED8] rounded-xl py-3 px-6 text-white text-sm font-semibold">Send message</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className=' flex flex-col md:flex-row justify-center gap-6 w-full'>
-          <div className='flex flex-col items-center space-x-4 p-6 bg-white shadow-md rounded-md w-full md:w-1/2 gap-1'>
-            <span className='bg-[#DBEAFE] p-1 rounded-md'>
+      </div>
+
+      <div className="w-8/12 mx-auto mb-24 mt-[500px]">
+        <div className="grid grid-cols-3 gap-8">
+
+          <div className="bg-white flex flex-col justify-center items-center gap-5 h-48 rounded-lg">
+            <div className='bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md'>
               <CgMail className='text-[#1D4ED8]' size={32} />
-            </span>
+            </div>
             <div className='flex flex-col items-center gap-1'>
-              <h3 className='font-semibold text-black'>Email Us</h3>
-              <p className='text-gray-600 text-sm'>
-                info@onemillionlandlord.com
-              </p>
+              <h3 className='font-semibold text-black text-xl'>Email Us</h3>
+              <p className='text-[#122231] text-lg font-normal'>info@onemillionlandlord.com</p>
             </div>
           </div>
 
-          <div className='flex flex-col items-center space-x-4 p-6 bg-white shadow-md rounded-md w-full md:w-1/2 gap-1'>
-            <span className='bg-[#DBEAFE] p-1 rounded-md'>
+          <div className="bg-white flex flex-col justify-center items-center gap-5 h-48 rounded-lg">
+            <div className='bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md'>
               <BiPhone className='text-[#1D4ED8]' size={32} />
-            </span>
+            </div>
             <div className='flex flex-col items-center gap-1'>
-              <h3 className='font-semibold text-black'>Call Us</h3>
-              <p className='text-gray-600 text-sm'>+234 8027 282 3949</p>
+              <h3 className='font-semibold text-black text-xl'>Call Us</h3>
+              <p className='text-[#122231] text-lg font-normal'>+234 8027 282 3949</p>
             </div>
           </div>
-        </div>{" "}
+
+          <div className="bg-white flex flex-col justify-center items-center gap-5 h-48 rounded-lg">
+            <div className='bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md'>
+              <FaWhatsapp className='text-[#1D4ED8]' size={32} />
+            </div>
+            <div className='flex flex-col items-center gap-1'>
+              <h3 className='font-semibold text-black text-xl'>Send us a message</h3>
+              <p className='text-[#122231] text-lg font-normal'>+234 8027 282 3949</p>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

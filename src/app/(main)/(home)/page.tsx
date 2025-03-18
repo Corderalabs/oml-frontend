@@ -7,12 +7,12 @@ import HousingOverview from "./components/HousingOverview";
 
 export default function Home() {
   return (
-    <div>
+    <div className="h-full">
       <Hero />
       <HousingOverview />
       <FAQ />
       <Testimonials />
-      <Projects /> 
+      {/* <Projects />  */}
     </div>
   );
 }

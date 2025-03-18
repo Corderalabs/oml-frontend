@@ -55,20 +55,20 @@ const Project = () => {
   ];
 
   return (
-    <div className="curved-edge">
+    <div className="curved-edge mb-10">
       <div className="overflow-hidden w-full" ref={emblaRef}>
         <div className="flex">
           {images.map((src, index) => (
             <div
               key={index}
-              className="flex-[0_0_60%] mx-4 relative h-96 rounded-lg overflow-hidden shadow-lg"
+              className="flex-[0_0_60%] mx-4 relative h-[500px] rounded-lg overflow-hidden shadow-lg"
             >
               <Image
                 src={src}
                 alt={`Image ${index}`}
                 className="object-cover w-full h-full"
                 width={400}
-                height={700}
+                height={500}
               />
             </div>
           ))}
