@@ -44,3 +44,15 @@ body {
     text-wrap: balance;
   }
 }
+
+
+/* HTML: <div class="curved-edge"></div> */
+.curved-edge {
+  --c: 70px; /* control the curvature (works with percentage) */
+  height: 500px;
+  width: 100%;
+  aspect-ratio: 1;
+  /* you can also update the 60%  */
+  mask: radial-gradient(60% var(--c) at 50% var(--c),#0000 calc(100% - 2px),#000) 0 calc(-1*var(--c));
+  background: #40C0CB;
+}
