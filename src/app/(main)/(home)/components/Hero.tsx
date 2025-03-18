@@ -3,21 +3,18 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <section className='bg-white text-center py-8 md:py-16 px-6'>
-      <h1 className='text-3xl md:text-5xl font-extrabold text-black md:w-[70%] mx-auto font-inter'>
+      <h1 className='text-3xl md:text-5xl font-extrabold text-black md:w-[70%] lg:w-6/12 mx-auto font-inter'>
         Why Pay Rent? When you can Own a Home in Lagos
       </h1>
-      <p className='text-gray-600 mt-4 text-base md:w-[43%] mx-auto'>
-        Stay <span className='font-semibold text-black'>RENT FREE</span> for 17
-        years or more. For as low as{" "}
-        <span className='font-semibold text-black'>7.5 million naira</span>, own
-        your peace of mind.
+      <p className='text-[#122231] mt-6 text-lg font-normal md:w-[43%] mx-auto'>
+        Stay RENT FREE for 15 years or more. For as low as 5 million naira, own your peace of mind
       </p>
-      <button className='bg-blue-600 text-white px-6 py-3 rounded-md mt-6'>
-        Get in Touch
+      <button className='bg-primary-100 text-white px-8 py-3 rounded-2xl mt-6 w-[182px] text-center'>
+        Contact Us
       </button>
 
       {/* Property Listings */}
-      <div className='mt-10 flex flex-col md:flex-row gap-6 justify-center'>
+      <div className='mt-10 w-11/12 mx-auto flex flex-col md:flex-row gap-6 justify-center'>
         <div className='relative w-full md:w-1/3'>
           <Image
             src='/images/brics.png'

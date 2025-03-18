@@ -1,6 +1,6 @@
 const HousingOverview = () => {
   return (
-    <section className='bg-white text-center py-8 md:py-16 px-6'>
+    <section className='bg-white text-center py-8 md:py-16 w-11/12 mx-auto'>
       <h2 className='text-3xl md:text-4xl font-bold text-black font-inter'>
         Low Cost Housing at your Finger Tips
       </h2>
