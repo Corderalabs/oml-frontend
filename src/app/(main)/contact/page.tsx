@@ -7,12 +7,12 @@ import { CgMail } from "react-icons/cg";
 import { z } from "zod";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-import PhoneInputWithCountry from "react-phone-number-input/react-hook-form";
+import { FaWhatsapp } from "react-icons/fa";
 
 const formSchema = z.object({
   fullName: z.string().min(3, "Full Name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  phoneNumber: z.string().min(10, "Phone number must be at least 10 digits"),
   message: z.string().min(5, "Message must be at least 5 characters"),
 });
 
@@ -88,7 +88,7 @@ export default function Contact() {
                 Phone Number
               </label>
               <Controller
-                name='phone'
+                name='phoneNumber'
                 control={control}
                 render={({ field }) => (
                   <PhoneInput
@@ -99,9 +99,9 @@ export default function Contact() {
                   />
                 )}
               />
-              {errors.phone && (
+              {errors.phoneNumber && (
                 <p className='text-red-500 text-sm mt-1'>
-                  {errors.phone.message}
+                  {errors.phoneNumber.message}
                 </p>
               )}
             </div>
@@ -133,30 +133,38 @@ export default function Contact() {
               </button>
             </div>
           </form>
-        </div>
-        <div className=' flex flex-col md:flex-row justify-center gap-6 w-full'>
-          <div className='flex flex-col items-center space-x-4 p-6 bg-white shadow-md rounded-md w-full md:w-1/2 gap-1'>
-            <span className='bg-[#DBEAFE] p-1 rounded-md'>
-              <CgMail className='text-[#1D4ED8]' size={32} />
-            </span>
-            <div className='flex flex-col items-center gap-1'>
-              <h3 className='font-semibold text-black'>Email Us</h3>
-              <p className='text-gray-600 text-sm'>
-                info@onemillionlandlord.com
-              </p>
-            </div>
-          </div>
-
-          <div className='flex flex-col items-center space-x-4 p-6 bg-white shadow-md rounded-md w-full md:w-1/2 gap-1'>
-            <span className='bg-[#DBEAFE] p-1 rounded-md'>
-              <BiPhone className='text-[#1D4ED8]' size={32} />
-            </span>
-            <div className='flex flex-col items-center gap-1'>
-              <h3 className='font-semibold text-black'>Call Us</h3>
-              <p className='text-gray-600 text-sm'>+234 8027 282 3949</p>
-            </div>
-          </div>
         </div>{" "}
+      </div>
+      <div className='grid grid-cols-1 lg:grid-cols-3 justify-center gap-3 w-full'>
+        <div className='flex flex-col items-center space-x-4 p-6 bg-white shadow-md rounded-md w-full  gap-1'>
+          <span className='bg-[#DBEAFE] p-1 rounded-md'>
+            <CgMail className='text-[#1D4ED8]' size={32} />
+          </span>
+          <div className='flex flex-col items-center gap-1'>
+            <h3 className='font-semibold text-black'>Email Us</h3>
+            <p className='text-gray-600 text-sm'>info@onemillionlandlord.com</p>
+          </div>
+        </div>
+
+        <div className='flex flex-col items-center space-x-4 p-6 bg-white shadow-md rounded-md w-full  gap-1'>
+          <span className='bg-[#DBEAFE] p-1 rounded-md'>
+            <BiPhone className='text-[#1D4ED8]' size={32} />
+          </span>
+          <div className='flex flex-col items-center gap-1'>
+            <h3 className='font-semibold text-black'>Call Us</h3>
+            <p className='text-gray-600 text-sm'>+234 8027 282 3949</p>
+          </div>
+        </div>
+
+        <div className='flex flex-col items-center space-x-4 p-6 bg-white shadow-md rounded-md w-full  gap-1'>
+          <span className='bg-[#DBEAFE] p-1 rounded-md'>
+            <FaWhatsapp className='text-[#1D4ED8]' size={32} />
+          </span>
+          <div className='flex flex-col items-center gap-1'>
+            <h3 className='font-semibold text-black'>Send us a message</h3>
+            <p className='text-gray-600 text-sm'>+234 8027 282 3949</p>
+          </div>
+        </div>
       </div>
     </div>
   );
