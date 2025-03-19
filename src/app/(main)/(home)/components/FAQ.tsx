@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
@@ -30,10 +31,10 @@ const faqs = [
 ];
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0); // First FAQ is open by default
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // First FAQ open by default
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? -1 : index); // Toggle the open state
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
@@ -51,25 +52,37 @@ const FAQ = () => {
         </p>
         <div className='mt-8 space-y-4'>
           {faqs.map((faq, index) => (
-            <>
-              <div key={index} className=''>
-                <button
-                  className='w-full text-left p-2 font-semibold flex justify-between items-center text-black'
-                  onClick={() => toggleFAQ(index)}
+            <div key={index} className='border-b-2 pb-2'>
+              {/* Question Button */}
+              <button
+                className='w-full text-left p-3 font-semibold flex justify-between items-center text-black focus:outline-none'
+                onClick={() => toggleFAQ(index)}
+              >
+                {faq.question}
+                <motion.span
+                  className='text-xl text-[#1D4ED8]'
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {faq.question}
-                  <span className='text-xl text-[#1D4ED8]'>
-                    {openIndex === index ? "−" : "+"}
-                  </span>
-                </button>
-                {openIndex === index && <hr className='border-b my-2' />}
+                  {openIndex === index ? "−" : "+"}
+                </motion.span>
+              </button>
 
+              {/* Animated Answer */}
+              <AnimatePresence>
                 {openIndex === index && (
-                  <p className='p-4 pt-0 text-gray-600'>{faq.answer}</p>
+                  <motion.div
+                    key='content'
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <p className='p-4 pt-0 text-gray-600'>{faq.answer}</p>
+                  </motion.div>
                 )}
-              </div>
-              <hr className='border-b-2' />
-            </>
+              </AnimatePresence>
+            </div>
           ))}
         </div>
       </div>

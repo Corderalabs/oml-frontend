@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default function Hero() {
   return (
     <section
       className='relative bg-cover bg-center text-white py-16 px-6'
       style={{
-        backgroundImage: "url('/images/about.png')",
+        backgroundImage: "url('/about.png')",
       }}
     >
       <div className='absolute inset-0 bg-black/60' />

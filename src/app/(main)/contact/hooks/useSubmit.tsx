@@ -1,19 +1,19 @@
-'use client';
-import { AxiosError } from 'axios';
-import { useState } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
-import { Bounce, toast } from 'react-toastify';
-import Axios from '@/lib/Axios';
+"use client";
+import { AxiosError } from "axios";
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { Bounce, toast } from "react-toastify";
+import Axios from "@/lib/Axios";
 
 export const formSchema = z.object({
-    fullName: z.string().min(3, "Full Name is required"),
-    email: z.string().email("Invalid email address"),
-    phoneNumber: z.string().min(10, "Phone number must be at least 10 digits"),
-    message: z.string().min(5, "Message must be at least 5 characters"),
+  fullName: z.string().min(3, "Full Name is required"),
+  email: z.string().email("Invalid email address"),
+  phoneNumber: z.string().min(10, "Phone number must be at least 10 digits"),
+  message: z.string().min(5, "Message must be at least 5 characters"),
 });
 
 export type contactUs = z.infer<typeof formSchema>;
@@ -37,14 +37,14 @@ const useSubmit = () => {
 
   const mutation = useMutation({
     mutationFn: async (body: any) => {
-      const { data } = await Axios.post(`/treat/maintenance/`, body);
+      const { data } = await Axios.post(`/contact/us/`, body);
       return data;
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ['maintenance@Landlord'] });
+      queryClient.invalidateQueries({ queryKey: ["oml@contact"] });
       setLoading(false);
       setSuccess(true);
-      toast.success('Message sent successfully', {
+      toast.success("Message sent successfully", {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -54,13 +54,13 @@ const useSubmit = () => {
         progress: 0.1,
         theme: "light",
         transition: Bounce,
-        });
+      });
       router.refresh();
     },
     onError(error, variables, context) {
       // console.log(error);
       setLoading(false);
-      toast.error('An error occurred while saving', {
+      toast.error("An error occurred while saving", {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -70,7 +70,7 @@ const useSubmit = () => {
         progress: 0.1,
         theme: "light",
         transition: Bounce,
-        });
+      });
     },
   });
 

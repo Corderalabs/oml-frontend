@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     description:
       "ONE MILLION LANDLORD connects investors with high-value real estate opportunities, transforming underutilized properties into thriving communities.",
     type: "website",
-    url: "https://onemillionlandlord.netlify.app/",
+    url: "https://onemillionlandlord.ng/",
     images: [
       {
-        url: "/images/logo.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "ONE MILLION LANDLORD - Real Estate Investment",

@@ -17,7 +17,13 @@ const Footer = () => {
         {/* Logo & Copyright */}
         <div className='flex flex-col gap-3 items-start'>
           <Link href={"/"}>
-            <Image src='/images/logo.png' alt='Logo' className="w-[70px] h-[50px] md:w-[131px] md:h-[95px]" width={141} height={105} />
+            <Image
+              src='/logo.png'
+              alt='Logo'
+              className='w-[70px] h-[50px] md:w-[131px] md:h-[95px]'
+              width={141}
+              height={105}
+            />
           </Link>
 
           <p className='text-[#94A3B8] mt-2 text-sm'>
@@ -27,15 +33,19 @@ const Footer = () => {
 
         {/* Company & Support */}
         <div className='flex flex-col md:flex-row justify-center md:justify-between space-y-4 md:space-y-0 md:space-x-12'>
-          <div className="flex flex-col gap-3">
+          <div className='flex flex-col gap-3'>
             <h4 className='font-semibold mb-2 text-[#94A3B8]'>Company</h4>
             <p className='text-[#94A3B8] text-sm'>Track your Investment</p>
-            <p className='text-[#94A3B8] text-sm'>About Us</p>
+            <Link href='/about-us' className='text-[#94A3B8] text-sm'>
+              About Us
+            </Link>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className='flex flex-col gap-3'>
             <h4 className='font-semibold mb-2 text-[#94A3B8]'>Support</h4>
             <p className='text-[#94A3B8] text-sm'>FAQs</p>
-            <p className='text-[#94A3B8] text-sm'>Contact Us</p>
+            <Link href='/contact' className='text-[#94A3B8] text-sm'>
+              Contact Us
+            </Link>
           </div>
         </div>
 
