@@ -7,8 +7,8 @@ import DropBar from "./DropBar";
 export const navLinks = [
   { name: "Home", url: "/" },
   { name: "About Us", url: "/about-us" },
-  { name: "Our Projects", url: "#" },
-  { name: "FAQs", url: "#" },
+  { name: "Our Projects", url: "#project" },
+  { name: "FAQs", url: "#faq" },
   { name: "Contact Us", url: "/contact" },
   { name: "Track Investment", url: "#" },
 ];
