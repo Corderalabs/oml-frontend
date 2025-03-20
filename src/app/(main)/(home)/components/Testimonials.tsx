@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Testimonials = () => {
   return (
-    <section className='py-16 px-6 text-center bg-white'>
+    <section className='py-16 px-6 text-center bg-white' id="testimonials">
       <h2 className='text-3xl md:text-4xl font-bold text-black'>
         Testimonials
       </h2>

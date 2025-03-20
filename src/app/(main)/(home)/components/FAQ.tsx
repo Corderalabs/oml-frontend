@@ -38,14 +38,14 @@ const FAQ = () => {
   };
 
   return (
-    <section className='py-16 px-6 bg-white'>
+    <section className='py-16 px-6 bg-white' id="faq">
       <div className='max-w-4xl mx-auto'>
         <h2 className='text-3xl md:text-4xl font-bold text-center text-black'>
           Frequently Asked Questions
         </h2>
         <p className='text-center text-gray-600 mt-4 w-[70%] mx-auto'>
           Need help? Check out the answers to your questions about One Million
-          Landlord, or send an email to{" "}
+          Landlord, or send an email to
           <a href='#' className='text-[#1D4ED8]'>
             info@onemillionlandlord.ng
           </a>
