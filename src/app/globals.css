@@ -30,6 +30,8 @@
 }
 
 body {
+  max-width: 1920px;
+  margin: 0 auto;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,

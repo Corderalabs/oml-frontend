@@ -79,7 +79,7 @@ const useSubmit = () => {
     mutation.mutate(values);
   }
 
-  return { onSubmit, form, success, loading, complete, setComplete };
+  return { onSubmit, form, errors: form.formState.errors, success, loading, complete, setComplete };
 };
 
 export default useSubmit;
