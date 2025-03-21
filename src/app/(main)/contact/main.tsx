@@ -7,112 +7,114 @@ import { FaWhatsapp } from "react-icons/fa";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import useSubmit from "./hooks/useSubmit";
+import ErrorMessage from "@/components/ErrorMessage";
 
 export default function Main() {
-  const { onSubmit, form, success, loading } = useSubmit();
+  const { onSubmit, form, success, loading, errors } = useSubmit();
 
   return (
-    <div className='h-full text-black'>
-      <div className='bg-[#EFF6FF] h-[390px] flex justify-center w-full'>
-        <div className='flex flex-col gap-7 text-center pt-20 w-11/12 mx-auto md:w-full'>
-          <p className='font-bold text-3xl md:text-4xl'>
+    <div className="h-full text-black">
+      <div className="bg-[#EFF6FF] h-[390px] flex justify-center w-full">
+        <div className="flex flex-col gap-7 text-center pt-20 w-11/12 mx-auto md:w-full">
+          <p className="font-bold text-3xl md:text-4xl">
             We&apos;d love to hear from you. Get in touch
           </p>
-          <p className='text-lg font-medium'>
+          <p className="text-lg font-medium">
             A member of the team will reach out to you as oon as possible
           </p>
         </div>
       </div>
 
-      <div className='relative'>
-        <div className='w-full absolute -top-28 md:-top-32'>
-          <div className='w-11/12 md:w-6/12 mx-auto bg-white shadow-md rounded-xl'>
-            <form onSubmit={form.handleSubmit(onSubmit)} className='p-10'>
-              <div className='grid gap-4'>
-                <div className='flex flex-col gap-2'>
-                  <p className='text-sm font-medium'>Full Name</p>
+      <div className="relative">
+        <div className="w-full absolute -top-28 md:-top-32">
+          <div className="w-11/12 md:w-6/12 mx-auto bg-white shadow-md rounded-xl">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="p-10">
+              <div className="grid gap-4">
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Full Name</p>
                   <Controller
                     control={form.control}
-                    name='fullName'
+                    name="fullName"
                     render={({ field: { onChange, onBlur, value } }) => (
-                      <div className='relative'>
+                      <div className="relative">
                         <input
                           value={value}
-                          className='w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600'
-                          type='text'
-                          placeholder='Enter your full name'
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600"
+                          type="text"
+                          placeholder="Enter your full name"
                           onChange={onChange}
                         />
-                        {/* {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>} */}
+                        <ErrorMessage
+                          message={errors.fullName?.message || ""}
+                        />
                       </div>
                     )}
                   />
                 </div>
-                <div className='flex flex-col gap-2'>
-                  <p className='text-sm font-medium'>Email Address</p>
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Email Address</p>
                   <Controller
                     control={form.control}
-                    name='email'
+                    name="email"
                     render={({ field: { onChange, onBlur, value } }) => (
-                      <div className='relative'>
+                      <div className="relative">
                         <input
                           value={value}
-                          className='w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600'
-                          type='email'
-                          placeholder='Enter email address'
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600"
+                          type="email"
+                          placeholder="Enter email address"
                           onChange={onChange}
                         />
-                        {/* {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>} */}
+                        <ErrorMessage message={errors.email?.message || ""} />
                       </div>
                     )}
                   />
                 </div>
-                <div className='flex flex-col gap-2'>
-                  <p className='text-sm font-medium'>Phone Number</p>
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Phone Number</p>
                   <Controller
                     control={form.control}
-                    name='phoneNumber'
+                    name="phoneNumber"
                     render={({ field: { onChange, onBlur, value } }) => (
-                      <div className='relative'>
+                      <div className="relative">
                         <PhoneInput
                           international
-                          defaultCountry='NG' // You can change this to your preferred default country
+                          defaultCountry="NG" // You can change this to your preferred default country
                           value={value}
+                          placeholder="Enter phone number"
                           onChange={onChange}
                           onBlur={onBlur}
-                          className='w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600'
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:border-gray-300 focus:outline-none focus:ring-0"
+                        />
+                        <ErrorMessage
+                          message={errors.phoneNumber?.message || ""}
                         />
                       </div>
                     )}
                   />
-                  {/* {errors.phoneNumber && (
-                    <p className='text-red-500 text-sm'>
-                      {errors.phoneNumber.message}
-                    </p>
-                  )} */}
                 </div>
 
-                <div className='flex flex-col gap-2'>
-                  <p className='text-sm font-medium'>Message</p>
+                <div className="flex flex-col gap-2">
+                  <p className="text-sm font-medium">Message</p>
                   <Controller
                     control={form.control}
-                    name='message'
+                    name="message"
                     render={({ field: { onChange, onBlur, value } }) => (
-                      <div className='relative'>
+                      <div className="relative">
                         <textarea
                           value={value}
-                          className='w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600'
-                          placeholder='How can we help you?'
+                          className="w-full border-2 border-gray-300 rounded-md p-4 text-gray-600 focus:outline-none focus:border-blue-600"
+                          placeholder="How can we help you?"
                           onChange={onChange}
                         />
-                        {/* {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>} */}
+                        <ErrorMessage message={errors.message?.message || ""} />
                       </div>
                     )}
                   />
                 </div>
 
-                <div className='flex justify-center'>
-                  <button className='bg-[#1D4ED8] rounded-xl py-3 px-6 text-white text-sm font-semibold'>
+                <div className="flex justify-center">
+                  <button className="bg-[#1D4ED8] rounded-xl py-3 px-6 text-white text-sm font-semibold">
                     {loading ? "Sending..." : "Send message"}
                   </button>
                 </div>
@@ -122,41 +124,41 @@ export default function Main() {
         </div>
       </div>
 
-      <div className='w-11/12 md:w-8/12 mx-auto mb-24 mt-[500px]'>
-        <div className='grid md:grid-cols-3 gap-8 w-full'>
-          <div className='bg-white shadow-md flex flex-col justify-center items-center gap-5 h-48 rounded-lg w-full'>
-            <div className='bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md'>
-              <CgMail className='text-[#1D4ED8]' size={32} />
+      <div className="w-11/12 md:w-8/12 mx-auto mb-24 mt-[500px]">
+        <div className="grid md:grid-cols-3 gap-8 w-full">
+          <div className="bg-white shadow-md flex flex-col justify-center items-center gap-5 h-48 rounded-lg w-full">
+            <div className="bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md">
+              <CgMail className="text-[#1D4ED8]" size={32} />
             </div>
-            <div className='flex flex-col items-center gap-1'>
-              <h3 className='font-semibold text-black text-xl'>Email Us</h3>
-              <p className='text-[#122231] text-lg font-normal'>
+            <div className="flex flex-col items-center gap-1">
+              <h3 className="font-semibold text-black text-xl">Email Us</h3>
+              <p className="text-[#122231] text-lg font-normal">
                 info@onemillionlandlord.com
               </p>
             </div>
           </div>
 
-          <div className='bg-white shadow-md flex flex-col justify-center items-center gap-5 h-48 rounded-lg w-full'>
-            <div className='bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md'>
-              <BiPhone className='text-[#1D4ED8]' size={32} />
+          <div className="bg-white shadow-md flex flex-col justify-center items-center gap-5 h-48 rounded-lg w-full">
+            <div className="bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md">
+              <BiPhone className="text-[#1D4ED8]" size={32} />
             </div>
-            <div className='flex flex-col items-center gap-1'>
-              <h3 className='font-semibold text-black text-xl'>Call Us</h3>
-              <p className='text-[#122231] text-lg font-normal'>
+            <div className="flex flex-col items-center gap-1">
+              <h3 className="font-semibold text-black text-xl">Call Us</h3>
+              <p className="text-[#122231] text-lg font-normal">
                 +234 8027 282 3949
               </p>
             </div>
           </div>
 
-          <div className='bg-white shadow-md flex flex-col justify-center items-center gap-5 h-48 rounded-lg w-full'>
-            <div className='bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md'>
-              <FaWhatsapp className='text-[#1D4ED8]' size={32} />
+          <div className="bg-white shadow-md flex flex-col justify-center items-center gap-5 h-48 rounded-lg w-full">
+            <div className="bg-[#DBEAFE] h-12 w-12 flex justify-center items-center rounded-md">
+              <FaWhatsapp className="text-[#1D4ED8]" size={32} />
             </div>
-            <div className='flex flex-col items-center gap-1'>
-              <h3 className='font-semibold text-black text-xl'>
+            <div className="flex flex-col items-center gap-1">
+              <h3 className="font-semibold text-black text-xl">
                 Send us a message
               </h3>
-              <p className='text-[#122231] text-lg font-normal'>
+              <p className="text-[#122231] text-lg font-normal">
                 +234 8027 282 3949
               </p>
             </div>
