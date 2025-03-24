@@ -11,6 +11,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
+  const handleEmailClick = () => {
+    window.location.href = "mailto:support@onemillionlandlord.ng";
+  };
+
+  const handleCallClick = () => {
+    window.location.href = "tel:+23480272823949";
+  };
+
   return (
     <footer className='bg-black text-white py-10 md:h-[380px] flex justify-between items-center px-6 w-full'>
       <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-left'>
@@ -63,10 +71,12 @@ const Footer = () => {
             <p className='text-[#94A3B8] text-sm'>
               4 Jibowu Street, Jibowu, Yaba, Lagos
             </p>
-            <p className='text-[#94A3B8] text-sm'>
-              management@onemillionlandlord.com
+            <p onClick={handleEmailClick} className='text-[#94A3B8] text-sm'>
+              support@onemillionlandlord.ng
             </p>
-            <p className='text-[#94A3B8] text-sm'>+234 803 733 9281</p>
+            <p onClick={handleCallClick} className='text-[#94A3B8] text-sm'>
+              +234 803 733 9281
+            </p>
           </div>
         </div>
       </div>

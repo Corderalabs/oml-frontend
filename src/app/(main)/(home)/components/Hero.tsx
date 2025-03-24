@@ -47,10 +47,10 @@ const Hero = () => {
 
   return (
     <section className="bg-white text-center py-8 md:py-16 px-6">
-      <h1 className="text-3xl md:text-5xl font-extrabold text-black md:w-[70%] lg:w-6/12 mx-auto font-inter">
+      <h1 className="text-3xl md:text-5xl font-extrabold text-black w-full md:w-[70%] lg:w-6/12 mx-auto font-inter">
         Why Pay Rent? When you can Own a Home in Lagos
       </h1>
-      <p className="text-[#122231] mt-6 text-lg font-normal md:w-[43%] mx-auto">
+      <p className="text-[#122231] mt-6 text-lg font-normal w-full md:w-[43%] mx-auto">
         Stay RENT FREE for 15 years or more. For as low as 5 million naira, own
         your peace of mind.
       </p>
@@ -65,8 +65,8 @@ const Hero = () => {
         {images.map((image, index) => (
           <motion.div
             key={index}
-            className={`relative md:h-[500px] transition-all duration-700 ease-in-out flex overflow-hidden rounded-xl ${
-              hoveredIndex === index ? "md:w-[45%]" : "md:w-[30%]"
+            className={`relative h-[400px] md:h-[500px] transition-all duration-700 ease-in-out flex overflow-hidden rounded-xl ${
+              hoveredIndex === index ? "w-full md:w-[45%]" : "w-full md:w-[30%]"
             }`}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
@@ -98,7 +98,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.7 }}
-                    className="text-white text-xs text-left md:w-[80%]"
+                    className="text-white text-xs text-left w-full md:w-[80%]"
                   >
                     <p>{image.message}</p>
                     <span className="w-1/2 flex items-start">
@@ -155,10 +155,10 @@ export default Hero;
 
 //   return (
 //     <section className='bg-white text-center py-8 md:py-16 px-6'>
-//       <h1 className='text-3xl md:text-5xl font-extrabold text-black md:w-[70%] lg:w-6/12 mx-auto font-inter'>
+//       <h1 className='text-3xl md:text-5xl font-extrabold text-black w-full md:w-[70%] lg:w-6/12 mx-auto font-inter'>
 //         Why Pay Rent? When you can Own a Home in Lagos
 //       </h1>
-//       <p className='text-[#122231] mt-6 text-lg font-normal md:w-[43%] mx-auto'>
+//       <p className='text-[#122231] mt-6 text-lg font-normal w-full md:w-[43%] mx-auto'>
 //         Stay RENT FREE for 15 years or more. For as low as 5 million naira, own
 //         your peace of mind.
 //       </p>
@@ -174,7 +174,7 @@ export default Hero;
 //           <motion.div
 //             key={index}
 //             className={`relative md:h-[300px] transition-all duration-700 ease-in-out flex overflow-hidden rounded-xl ${
-//               hoveredIndex === index ? "md:w-[45%]" : "md:w-[30%]"
+//               hoveredIndex === index ? "w-full md:w-[45%]" : "w-full md:w-[30%]"
 //             }`}
 //             onMouseEnter={() => setHoveredIndex(index)}
 //             onMouseLeave={() => setHoveredIndex(null)}
@@ -206,7 +206,7 @@ export default Hero;
 //                     animate={{ opacity: 1, y: 0 }}
 //                     exit={{ opacity: 0, y: 10 }}
 //                     transition={{ duration: 0.7 }}
-//                     className='text-white text-xs text-left md:w-[80%]'
+//                     className='text-white text-xs text-left w-full md:w-[80%]'
 //                   >
 //                     <p>{image.message}</p>
 //                     <span className='w-1/2 flex items-start'>
