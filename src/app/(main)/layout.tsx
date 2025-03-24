@@ -1,4 +1,5 @@
 "use client";
+import ChatBot from "@/components/ChatBot";
 import Footer from "@/components/Footer";
 import Header from "@/components/header/Header";
 import HeaderContextProvider from "@/components/header/hook/context";
@@ -21,6 +22,8 @@ export default function SiteLayout({
           <Header />
 
           <main className='flex-grow bg-white'>{children}</main>
+          <ChatBot />
+
           <Footer />
         </div>
         <ToastContainer />
