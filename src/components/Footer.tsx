@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "./Logo";
 import {
   FaFacebookF,
   FaInstagram,
@@ -10,7 +9,11 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-const Footer = () => {
+const Footer = ({
+  handleNavClick,
+}: {
+  handleNavClick: (section: string) => void;
+}) => {
   const handleEmailClick = () => {
     window.location.href = "mailto:support@onemillionlandlord.ng";
   };
@@ -50,7 +53,12 @@ const Footer = () => {
           </div>
           <div className='flex flex-col gap-3'>
             <h4 className='font-semibold mb-2 text-[#94A3B8]'>Support</h4>
-            <p className='text-[#94A3B8] text-sm'>FAQs</p>
+            <button
+              className='text-[#94A3B8] text-sm text-left'
+              onClick={() => handleNavClick("faq")}
+            >
+              FAQs
+            </button>
             <Link href='/contact' className='text-[#94A3B8] text-sm'>
               Contact Us
             </Link>
@@ -59,7 +67,7 @@ const Footer = () => {
 
         {/* Contact & Social Media */}
         <div className='flex md:flex-col gap-2 flex-col-reverse items-start md:items-end space-y-2 md:space-y-0'>
-          {/* Social Media Icons (Eerst op Desktop, Laatst op Mobiel) */}
+          {/* Social Media Icons */}
           <div className='flex space-x-4 text-white text-lg md:mb-4 mt-2 md:mt-0'>
             <FaFacebookF />
             <FaInstagram />
@@ -71,10 +79,16 @@ const Footer = () => {
             <p className='text-[#94A3B8] text-sm'>
               4 Jibowu Street, Jibowu, Yaba, Lagos
             </p>
-            <p onClick={handleEmailClick} className='text-[#94A3B8] text-sm'>
+            <p
+              onClick={handleEmailClick}
+              className='text-[#94A3B8] text-sm cursor-pointer'
+            >
               support@onemillionlandlord.ng
             </p>
-            <p onClick={handleCallClick} className='text-[#94A3B8] text-sm'>
+            <p
+              onClick={handleCallClick}
+              className='text-[#94A3B8] text-sm cursor-pointer'
+            >
               +234 803 733 9281
             </p>
           </div>

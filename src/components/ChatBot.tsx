@@ -6,12 +6,11 @@ export default function ChatBot() {
   const pathname = usePathname();
 
   // Define the pages where the widget should appear
-const allowedPages = useMemo(() => ["/", "/about", "/contact"], []);
-
+  const allowedPages = useMemo(() => ["/", "/about", "/contact"], []);
 
   useEffect(() => {
     // Check if the current page is in allowedPages
-    if (!allowedPages.includes(pathname)) return;
+    // if (!allowedPages.includes(pathname)) return;
 
     var Tawk_API = (window as any).Tawk_API || {},
       Tawk_LoadStart = new Date();
@@ -30,8 +29,8 @@ const allowedPages = useMemo(() => ["/", "/about", "/contact"], []);
   return null; // This component only loads the script, no UI
 }
 
-
-{/* <script type="text/javascript">
+{
+  /* <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -41,4 +40,5 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
-</script> */}
+</script> */
+}

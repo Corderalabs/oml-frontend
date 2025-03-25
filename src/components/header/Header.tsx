@@ -13,7 +13,11 @@ export const navLinks = [
   { name: "Track Investment", url: "#" },
 ];
 
-const Header = () => {
+const Header = ({
+  handleNavClick,
+}: {
+  handleNavClick: (section: string) => void;
+}) => {
   const { closeHandler, isSidebar, toggleHandler } = useHeader();
 
   return (
@@ -23,9 +27,19 @@ const Header = () => {
           <Logo />
           <nav className='hidden md:flex space-x-10 text-sm font-medium'>
             {navLinks.map((link, index) => (
-              <Link className='' key={index} href={`${link.url}`}>
+              <button
+                key={index}
+                className='text-black hover:text-blue-600'
+                onClick={() => {
+                  if (link.url.startsWith("#")) {
+                    handleNavClick(link.url.replace("#", ""));
+                  } else {
+                    window.location.href = link.url; // External links
+                  }
+                }}
+              >
                 {link.name}
-              </Link>
+              </button>
             ))}
           </nav>
         </div>
