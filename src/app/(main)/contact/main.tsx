@@ -21,7 +21,11 @@ export default function Main() {
   };
 
   const handleWhatsAppClick = () => {
-    window.location.href = "https://wa.me/23480272823949";
+    window.open(
+      "https://wa.me/23480272823949",
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (

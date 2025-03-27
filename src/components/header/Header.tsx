@@ -10,7 +10,8 @@ export const navLinks = [
   { name: "Our Projects", url: "#project" },
   { name: "FAQs", url: "#faq" },
   { name: "Contact Us", url: "/contact" },
-  { name: "Track Investment", url: "#" },
+  // { name: "Track Investment", url: "#" },
+  { name: "One Million Academy", url: "/one-million-academy" },
 ];
 
 const Header = ({

@@ -1,4 +1,6 @@
+// useSubmit.ts
 "use client";
+
 import { AxiosError } from "axios";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,36 +11,56 @@ import { useRouter } from "next/navigation";
 import { Bounce, toast } from "react-toastify";
 import Axios from "@/lib/Axios";
 
+// 1) Define your Zod schema
 export const formSchema = z.object({
   fullName: z.string().min(3, "Full Name is required"),
   email: z.string().email("Invalid email address"),
   phoneNumber: z.string().min(10, "Phone number must be at least 10 digits"),
   message: z.string().min(5, "Message must be at least 5 characters"),
+  moreInfo: z.string().optional(),
+
+  investment: z.boolean().optional(),
+  management: z.boolean().optional(),
+  law: z.boolean().optional(),
+  marketing: z.boolean().optional(),
 });
 
-export type contactUs = z.infer<typeof formSchema>;
+// 2) Create a TypeScript type from your schema
+export type ContactUsFormData = z.infer<typeof formSchema>;
 
 const useSubmit = () => {
   const [success, setSuccess] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [complete, setComplete] = useState(false);
+
   const router = useRouter();
-
-  // const { handleStatus } = useTenant();
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {},
-  });
-
-  // console.log(form.getValues());
 
   const queryClient = useQueryClient();
 
+  // 3) Initialize react-hook-form with the extended schema
+  const form = useForm<ContactUsFormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      message: "",
+      moreInfo: "",
+      investment: false,
+      management: false,
+      law: false,
+      marketing: false,
+    },
+  });
+  console.log(form.getValues());
+
+  // 4) React Query Mutation
   const mutation = useMutation({
-    mutationFn: async (body: any) => {
-      const { data } = await Axios.post(`/contact/us/`, body);
-      return data;
+    mutationFn: async (body: ContactUsFormData) => {
+      // Adjust your endpoint/path as needed
+
+      // const { data } = await Axios.post(`/contact/us/`, body);
+      // return data;
     },
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["oml@contact"] });
@@ -55,12 +77,12 @@ const useSubmit = () => {
         theme: "light",
         transition: Bounce,
       });
+      // Optionally refresh or redirect
       router.refresh();
     },
-    onError(error, variables, context) {
-      // console.log(error);
+    onError: (error: AxiosError) => {
       setLoading(false);
-      toast.error("An error occurred while saving", {
+      toast.error("An error occurred while sending message", {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -71,15 +93,25 @@ const useSubmit = () => {
         theme: "light",
         transition: Bounce,
       });
+      console.error("Submit error:", error);
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  // 5) onSubmit Handler
+  async function onSubmit(values: ContactUsFormData) {
     setLoading(true);
     mutation.mutate(values);
   }
 
-  return { onSubmit, form, errors: form.formState.errors, success, loading, complete, setComplete };
+  return {
+    onSubmit,
+    form,
+    errors: form.formState.errors,
+    success,
+    loading,
+    complete,
+    setComplete,
+  };
 };
 
 export default useSubmit;

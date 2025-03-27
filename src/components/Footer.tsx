@@ -46,7 +46,10 @@ const Footer = ({
         <div className='flex flex-col md:flex-row justify-center md:justify-between space-y-4 md:space-y-0 md:space-x-12'>
           <div className='flex flex-col gap-3'>
             <h4 className='font-semibold mb-2 text-[#94A3B8]'>Company</h4>
-            <p className='text-[#94A3B8] text-sm'>Track your Investment</p>
+            {/* <p className='text-[#94A3B8] text-sm'>Track your Investment</p> */}
+            <Link href='/one-million-academy' className='text-[#94A3B8] text-sm'>
+              One Million Academy
+            </Link>
             <Link href='/about-us' className='text-[#94A3B8] text-sm'>
               About Us
             </Link>
