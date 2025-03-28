@@ -15,9 +15,9 @@ import Axios from "@/lib/Axios";
 export const formSchema = z.object({
   fullName: z.string().min(3, "Full Name is required"),
   email: z.string().email("Invalid email address"),
-  phoneNumber: z.string().min(10, "Phone number must be at least 10 digits"),
-  message: z.string().min(5, "Message must be at least 5 characters"),
-  moreInfo: z.string().optional(),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  // message: z.string().min(5, "Message must be at least 5 characters"),
+  moreInformation: z.string().optional(),
 
   investment: z.boolean().optional(),
   management: z.boolean().optional(),
@@ -26,7 +26,7 @@ export const formSchema = z.object({
 });
 
 // 2) Create a TypeScript type from your schema
-export type ContactUsFormData = z.infer<typeof formSchema>;
+export type JoinAcademyFormData = z.infer<typeof formSchema>;
 
 const useSubmit = () => {
   const [success, setSuccess] = useState<boolean>(false);
@@ -38,32 +38,32 @@ const useSubmit = () => {
   const queryClient = useQueryClient();
 
   // 3) Initialize react-hook-form with the extended schema
-  const form = useForm<ContactUsFormData>({
+  const form = useForm<JoinAcademyFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: "",
       email: "",
-      phoneNumber: "",
-      message: "",
-      moreInfo: "",
+      phone: "",
+      moreInformation: "",
       investment: false,
       management: false,
       law: false,
       marketing: false,
     },
   });
-  console.log(form.getValues());
+  // console.log(form.getValues());
 
   // 4) React Query Mutation
   const mutation = useMutation({
-    mutationFn: async (body: ContactUsFormData) => {
+    mutationFn: async (body: JoinAcademyFormData) => {
       // Adjust your endpoint/path as needed
 
-      // const { data } = await Axios.post(`/contact/us/`, body);
-      // return data;
+      const { data } = await Axios.post(`/academy/create/`, body);
+      return data;
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["oml@contact"] });
+      queryClient.invalidateQueries({ queryKey: ["oml@academy"] });
+      console.log(data, "jhg");
       setLoading(false);
       setSuccess(true);
       toast.success("Message sent successfully", {
@@ -98,7 +98,7 @@ const useSubmit = () => {
   });
 
   // 5) onSubmit Handler
-  async function onSubmit(values: ContactUsFormData) {
+  async function onSubmit(values: JoinAcademyFormData) {
     setLoading(true);
     mutation.mutate(values);
   }

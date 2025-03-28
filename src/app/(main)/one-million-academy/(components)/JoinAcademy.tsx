@@ -85,7 +85,7 @@ export default function JoinAcademy({
                 </label>
                 <Controller
                   control={form.control}
-                  name='phoneNumber'
+                  name='phone'
                   render={({ field: { onChange, value } }) => (
                     <>
                       <PhoneInput
@@ -97,7 +97,7 @@ export default function JoinAcademy({
                         className='w-full border border-gray-300 rounded-md p-3 text-gray-700 focus:outline-none focus:border-blue-500'
                       />
                       <ErrorMessage
-                        message={errors.phoneNumber?.message || ""}
+                        message={errors.phone?.message || ""}
                       />
                     </>
                   )}
@@ -135,7 +135,7 @@ export default function JoinAcademy({
               </label>
               <Controller
                 control={form.control}
-                name='moreInfo'
+                name='moreInformation'
                 render={({ field: { onChange, value } }) => (
                   <>
                     <textarea
@@ -145,7 +145,7 @@ export default function JoinAcademy({
                       placeholder='Let us know how else we can provide value to you'
                       className='w-full border border-gray-300 rounded-md p-3 text-gray-700 focus:outline-none focus:border-blue-500'
                     />
-                    <ErrorMessage message={errors.moreInfo?.message || ""} />
+                    <ErrorMessage message={errors.moreInformation?.message || ""} />
                   </>
                 )}
               />
