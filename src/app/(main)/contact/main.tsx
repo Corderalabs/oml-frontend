@@ -163,7 +163,7 @@ export default function Main() {
             <div className='flex flex-col items-center gap-1'>
               <h3 className='font-semibold text-black text-xl'>Call Us</h3>
               <p className='text-[#122231] text-lg font-normal'>
-                +234 8027 282 3949
+                +234 902 625 9544
               </p>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function Main() {
                 Send us a message
               </h3>
               <p className='text-[#122231] text-lg font-normal'>
-                +234 8027 282 3949
+                +234 902 625 9544
               </p>
             </div>
           </div>

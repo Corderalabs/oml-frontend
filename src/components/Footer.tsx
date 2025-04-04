@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { FaXTwitter } from "react-icons/fa6";
@@ -97,6 +97,14 @@ const Footer = ({
               rel='noopener noreferrer'
             >
               <FaYoutube />
+            </a>
+
+            <a
+              href='https://www.tiktok.com/@one.million.landl?_t=ZM-8vFgEb5XiPV&_r=1'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaTiktok />
             </a>
           </div>
           <div className='flex flex-col gap-4 items-start md:items-end'>

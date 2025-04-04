@@ -11,22 +11,22 @@ const images = [
     jpg: "/m1.jpg",
     pdf: "/mc-allen-brochure.pdf", // Add your PDF paths
     message:
-      "Serene living in Shomolu, Lagos, with modern amenities and easy access to key infrastructure.",
+      "Mc-Allen Residence is located in Shomolu, Lagos, making it perfectly  situated  in  a  serene  environment  with  all  the necessary  amenities  and  close  proximity  to  major infrastructure.  This  creates  a  harmonious  balance  of modern living and convenience.",
   },
   {
-    name: "The Brics Homes",
+    name: "The Brixx",
     jpg: "/m3.jpg",
-    pdf: "/brics-homes-brochure.pdf",
+    pdf: "/brixx-brochure.pdf",
     message:
-      "Serene living in Shomolu, Lagos, with modern amenities and easy access to key infrastructure.",
+      "The  Brixx  is  located  in  Fadeyi,  Lagos,  making  it perfectly  situated  in  a  serene  environment  with  all  the necessary amenities and close proximity to two institutions which increases the  demand of rental properties with high capital  and  rental  appreciation  which  Increases  by  20% annually.",
   },
   {
-    name: "Cardiff Courts",
+    name: "Emmanuel Heights",
     jpg: "/PRP-Ilupeju-7.png",
     // pdf: "/cardiff-courts-brochure.pdf",
     pdf: "/EMMANUEL-HEIGHTS-BROCHURE.pdf",
     message:
-      "Serene living in Shomolu, Lagos, with modern amenities and easy access to key infrastructure.",
+      "EMMANUEL HEIGHTS is located at Ilupeju, Lagos. Within the axis of Town planning way, Tinubu road, Ilupeju bypass, Coker road, and Ilupeju Industrial Avenue which are all popular routesin Ilupeju.",
   },
 ];
 
@@ -65,7 +65,7 @@ const Hero = () => {
       </p>
       <Link href={"/contact"}>
         <button className='bg-primary-100 text-white px-8 py-3 rounded-2xl mt-6 w-[182px] text-center'>
-       Get In Touch
+          Get In Touch
         </button>
       </Link>
 
