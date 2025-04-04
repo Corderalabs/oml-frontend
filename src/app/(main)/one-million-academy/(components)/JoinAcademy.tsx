@@ -19,18 +19,20 @@ const courseAreas: CourseArea[] = [
   { id: "marketing", label: "Real Estate Marketing & Sales" },
 ];
 
-export default function JoinAcademy({
-  joinSectionRef,
-}: {
-  joinSectionRef: React.RefObject<HTMLDivElement | null>;
-}) {
+// export default function JoinAcademy({
+//   joinSectionRef,
+// }: {
+//   joinSectionRef: React.RefObject<HTMLDivElement | null>;
+// }) {
+export default function JoinAcademy() {
   const { onSubmit, form, success, loading, errors } = useSubmit();
 
   return (
-    <section
-      ref={joinSectionRef as React.RefObject<HTMLElement>}
-      className='bg-[#EFF6FF] py-8 md:py-16'
-    >
+    // <section
+    //   ref={joinSectionRef as React.RefObject<HTMLElement>}
+    //   className='bg-[#EFF6FF] py-8 md:py-16'
+    // >
+    <section className='bg-white py-8 md:py-16'>
       {/* Container */}
       <div className='max-w-5xl mx-auto px-4 md:px-8'>
         {/* Header */}
@@ -45,7 +47,7 @@ export default function JoinAcademy({
         </div>
 
         {/* Form Card */}
-        <div className='bg-white rounded-lg shadow-md max-w-2xl mx-auto p-5 '>
+        <div className='border rounded-lg max-w-2xl mx-auto p-5 '>
           {/* Form Title */}
           <div className='text-center'>
             <h3 className='text-base md:text-lg font-bold text-[#000929]'>
@@ -53,7 +55,7 @@ export default function JoinAcademy({
             </h3>
           </div>
           <hr className='mt-2 mb-4 ' />
-          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-5'>
+          <form className='space-y-5'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
               {/* Full Name */}
               <div>
@@ -96,9 +98,7 @@ export default function JoinAcademy({
                         onChange={onChange}
                         className='w-full border border-gray-300 rounded-md p-3 text-gray-700 focus:outline-none focus:border-blue-500'
                       />
-                      <ErrorMessage
-                        message={errors.phone?.message || ""}
-                      />
+                      <ErrorMessage message={errors.phone?.message || ""} />
                     </>
                   )}
                 />
@@ -145,7 +145,9 @@ export default function JoinAcademy({
                       placeholder='Let us know how else we can provide value to you'
                       className='w-full border border-gray-300 rounded-md p-3 text-gray-700 focus:outline-none focus:border-blue-500'
                     />
-                    <ErrorMessage message={errors.moreInformation?.message || ""} />
+                    <ErrorMessage
+                      message={errors.moreInformation?.message || ""}
+                    />
                   </>
                 )}
               />
@@ -184,17 +186,18 @@ export default function JoinAcademy({
                 ))}
               </div>
             </div>
-
-            {/* Submit Button */}
-            <div className='flex justify-center'>
-              <button
-                type='submit'
-                className='bg-blue-600 text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-700 transition'
-              >
-                {loading ? "Sending..." : "Submit"}
-              </button>
-            </div>
           </form>
+        </div>
+        {/* Submit Button */}
+        <div className='flex justify-end mt-5 max-w-2xl mx-auto'>
+          <button
+            onClick={form.handleSubmit(onSubmit)}
+            disabled={loading}
+            type='submit'
+            className='bg-blue-600 text-white font-semibold py-1 px-10 rounded-md hover:bg-blue-700 transition'
+          >
+            {loading ? "Sending..." : "Submit"}
+          </button>
         </div>
       </div>
     </section>

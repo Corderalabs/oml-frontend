@@ -1,16 +1,19 @@
 // components/MeetYourInstructor.tsx
-"use client"
+"use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-export default function Instructor({
-  joinSectionRef,
-}: {
-  joinSectionRef: React.RefObject<HTMLDivElement | null>;
-}) {
-  const scrollToJoinSection = () => {
-    joinSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+// export default function Instructor({
+//   joinSectionRef,
+// }: {
+//   joinSectionRef: React.RefObject<HTMLDivElement | null>;
+// }) {
+//   const scrollToJoinSection = () => {
+//     joinSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+//   };
+
+export default function Instructor() {
   return (
     <section className='bg-white py-8 md:py-16'>
       <div className='max-w-6xl mx-auto px-4 md:px-8'>
@@ -47,12 +50,14 @@ export default function Instructor({
               various training initiatives, equipping them with the skills and
               expertise needed to thrive in the industry.
             </p>
-            <button
-              onClick={scrollToJoinSection}
-              className='bg-blue-600 text-white py-1 px-6 rounded-md font-medium hover:bg-blue-700 transition'
-            >
-              Apply Now
-            </button>
+            <Link href='/one-million-academy/apply'>
+              <button
+                // onClick={scrollToJoinSection}
+                className='bg-blue-600 text-white py-1 px-6 rounded-md font-medium hover:bg-blue-700 transition'
+              >
+                Apply Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

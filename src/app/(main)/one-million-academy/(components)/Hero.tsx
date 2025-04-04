@@ -3,16 +3,17 @@
 import React from "react";
 import Image from "next/image";
 import OverlayCard from "./OverlayCard";
+import Link from "next/link";
 
-export default function Hero({
-  joinSectionRef,
-}: {
-  joinSectionRef: React.RefObject<HTMLDivElement | null>;
-}) {
-  const scrollToJoinSection = () => {
-    joinSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
+// export default function Hero({
+//   joinSectionRef,
+// }: {
+//   joinSectionRef: React.RefObject<HTMLDivElement | null>;
+// }) {
+//   const scrollToJoinSection = () => {
+//     joinSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+//   };
+export default function Hero() {
   return (
     <section className='bg-[#EFF6FF] py-10 md:py-16'>
       <div className='w-[90%] mx-auto flex flex-col-reverse md:flex-row items-center px-4 md:px-5 gap-6'>
@@ -27,12 +28,14 @@ export default function Hero({
             expert-led courses, hands-on training, and mentorship— perfect for
             beginners and pros alike!
           </p>
-          <button
-            onClick={scrollToJoinSection}
-            className='bg-[#1D4ED8] text-white px-5 py-1 rounded-lg shadow-md hover:bg-blue-600 transition'
-          >
-            Apply Now
-          </button>
+          <Link href='/one-million-academy/apply'>
+            <button
+              // onClick={scrollToJoinSection}
+              className='bg-[#1D4ED8] text-white px-5 py-1 rounded-lg shadow-md hover:bg-blue-600 transition'
+            >
+              Apply Now
+            </button>
+          </Link>
         </div>
 
         {/* RIGHT IMAGE & OVERLAYS */}
