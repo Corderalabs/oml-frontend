@@ -45,9 +45,9 @@ const DropBar = ({ isSidebar, action }: sidbarType) => {
                 </li>
               ))}
             </ul>
-            <button className='bg-blue-600 text-white px-4 py-2 rounded-md'>
+            {/* <button className='bg-blue-600 text-white px-4 py-2 rounded-md'>
               Download Brochure
-            </button>
+            </button> */}
           </menu>
         </div>
       </aside>
