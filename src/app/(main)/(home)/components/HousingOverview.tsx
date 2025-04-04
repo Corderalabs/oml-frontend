@@ -18,7 +18,7 @@ const HousingOverview = () => {
         <div className='grid grid-cols-3 text-center w-full'>
           <div className='relative flex flex-col items-center'>
             <h3 className='text-3xl md:text-4xl font-extrabold text-black font-inter mt-3'>
-              250+
+              40+
             </h3>
             <p className='text-xs md:text-lg text-gray-600'>
               Verified Investors
@@ -27,14 +27,14 @@ const HousingOverview = () => {
           </div>
           <div className='relative flex flex-col items-center'>
             <h3 className='text-3xl md:text-4xl font-extrabold text-black font-inter mt-3'>
-              20+
+              10+
             </h3>
             <p className='text-xs md:text-lg text-gray-600'>Awesome Projects</p>
             <div className='absolute top-[-10px] right-0 h-[calc(100%+30px)] w-[1px] bg-gray-300'></div>
           </div>
           <div className='flex flex-col items-center'>
             <h3 className='text-3xl md:text-4xl font-extrabold text-black font-inter mt-3'>
-              N1.5b
+              ₦100m
             </h3>
             <p className='text-xs md:text-lg text-gray-600'>
               Investment Generated

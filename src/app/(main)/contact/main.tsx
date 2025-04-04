@@ -17,15 +17,11 @@ export default function Main() {
   };
 
   const handleCallClick = () => {
-    window.location.href = "tel:+23480272823949";
+    window.location.href = "tel:+2349026259544";
   };
 
   const handleWhatsAppClick = () => {
-    window.open(
-      "https://wa.me/23480272823949",
-      "_blank",
-      "noopener,noreferrer"
-    );
+    window.open("https://wa.me/2349026259544", "_blank", "noopener,noreferrer");
   };
 
   return (

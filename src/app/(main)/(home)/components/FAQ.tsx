@@ -25,8 +25,10 @@ const faqs = [
       "Your interest is covered by a registered lease agreement, backed by local property laws.",
   },
   {
-    question: "Where are the properties located?",
-    answer: "Our properties are located in prime areas across the country.",
+    question:
+      "As an investor, can One Million Landlord serve as a caretaker for tenant occupancy without my direct involvement, ensuring I only receive rent payments?",
+    answer:
+      "Yes, as an investor, you can rely on One Million Landlord for full property management services, including tenant placement, rent collection, lease administration, and maintenance, while ensuring rental payments are deposited directly into your account.",
   },
 ];
 

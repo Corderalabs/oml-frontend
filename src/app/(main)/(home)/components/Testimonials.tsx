@@ -33,10 +33,10 @@ const Testimonials = () => {
 
           {/* Loading overlay - shown only until the video loads */}
           {!isVideoLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-200">
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-400 rounded-lg shadow-md">
               <div className="animate-pulse">
                 <svg
-                  className="w-10 h-10 text-gray-400"
+                  className="w-[50px] h-[50px] text-gray-100"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

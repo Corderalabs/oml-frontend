@@ -63,17 +63,18 @@ const useSubmit = () => {
     },
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["oml@academy"] });
-      console.log(data, "jhg");
+      // console.log(data, "jhg");
       setLoading(false);
       setSuccess(true);
-      toast.success("Message sent successfully", {
+      form.reset();
+      toast.success("Application sent successfully", {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: true,
         draggable: true,
-        progress: 0.1,
+        progress: undefined,
         theme: "light",
         transition: Bounce,
       });
@@ -82,14 +83,14 @@ const useSubmit = () => {
     },
     onError: (error: AxiosError) => {
       setLoading(false);
-      toast.error("An error occurred while sending message", {
+      toast.error("An error occurred while sending application", {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: true,
         draggable: true,
-        progress: 0.1,
+        progress: undefined,
         theme: "light",
         transition: Bounce,
       });

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { brics, brics2, cardiff } from "@/utils/image";
 import Overlay from "./Overlay";
+import Link from "next/link";
 
 const Project = ({
   sectionRef,
@@ -69,12 +70,12 @@ const Project = ({
     <div ref={sectionRef} className='h-full my-10' id='project'>
       <div className='w-full'>
         <h2 className='text-[42px] md:text-4xl font-bold text-center text-black'>
-          Our Projects
+          Past Projects
         </h2>
         <p className='w-11/12 text-center text-primary-200 mt-4 md:w-[45%] mx-auto'>
-          Our projects showcase innovative designs, prime locations, and
-          sustainable development, offering modern living spaces that elevate
-          lifestyle and comfort.
+          Our past projects reflect innovative designs, prime locations, and
+          sustainable development. Each property is crafted to offer modern
+          living spaces that elevate lifestyle and comfort.
         </p>
       </div>
 
@@ -136,9 +137,11 @@ const Project = ({
         <h2 className='w-11/12 text-2xl leading-[48px] md:text-[42px] md:w-10/12 mx-auto font-bold text-center text-black'>
           Let&apos;s Make Home ownership in Lagos a Reality Together
         </h2>
-        <button className='bg-primary-100 text-white px-6 py-3 rounded-xl mt-6'>
-          Download Brochure
-        </button>
+        <Link href={"/contact"}>
+          <button className='bg-primary-100 text-white px-6 py-3 rounded-xl mt-6'>
+            Contact Us
+          </button>
+        </Link>
       </div>
 
       {/* Render overlay only when it's open */}

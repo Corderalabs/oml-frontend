@@ -44,6 +44,7 @@ const useSubmit = () => {
       queryClient.invalidateQueries({ queryKey: ["oml@contact"] });
       setLoading(false);
       setSuccess(true);
+      form.reset();
       toast.success("Message sent successfully", {
         position: "bottom-right",
         autoClose: 3000,
@@ -51,7 +52,7 @@ const useSubmit = () => {
         closeOnClick: false,
         pauseOnHover: true,
         draggable: true,
-        progress: 0.1,
+        progress: undefined,
         theme: "light",
         transition: Bounce,
       });
@@ -67,7 +68,7 @@ const useSubmit = () => {
         closeOnClick: false,
         pauseOnHover: true,
         draggable: true,
-        progress: 0.1,
+        progress: undefined,
         theme: "light",
         transition: Bounce,
       });
@@ -79,7 +80,15 @@ const useSubmit = () => {
     mutation.mutate(values);
   }
 
-  return { onSubmit, form, errors: form.formState.errors, success, loading, complete, setComplete };
+  return {
+    onSubmit,
+    form,
+    errors: form.formState.errors,
+    success,
+    loading,
+    complete,
+    setComplete,
+  };
 };
 
 export default useSubmit;

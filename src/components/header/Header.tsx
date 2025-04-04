@@ -44,9 +44,9 @@ const Header = ({
             ))}
           </nav>
         </div>
-        <button className='bg-blue-600 text-white px-4 py-2 rounded-md hidden md:block'>
+        {/* <button className='bg-blue-600 text-white px-4 py-2 rounded-md hidden md:block'>
           Download Brochure
-        </button>
+        </button> */}
         <Image
           src={"/menu.svg"}
           className='md:hidden cursor-pointer'

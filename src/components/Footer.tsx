@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaTiktok,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = ({
   handleNavClick,
@@ -19,7 +14,7 @@ const Footer = ({
   };
 
   const handleCallClick = () => {
-    window.location.href = "tel:+23480272823949";
+    window.location.href = "tel:+2349026259544";
   };
 
   return (
@@ -47,7 +42,10 @@ const Footer = ({
           <div className='flex flex-col gap-3'>
             <h4 className='font-semibold mb-2 text-[#94A3B8]'>Company</h4>
             {/* <p className='text-[#94A3B8] text-sm'>Track your Investment</p> */}
-            <Link href='/one-million-academy' className='text-[#94A3B8] text-sm'>
+            <Link
+              href='/one-million-academy'
+              className='text-[#94A3B8] text-sm'
+            >
               One Million Academy
             </Link>
             <Link href='/about-us' className='text-[#94A3B8] text-sm'>
@@ -72,11 +70,34 @@ const Footer = ({
         <div className='flex md:flex-col gap-2 flex-col-reverse items-start md:items-end space-y-2 md:space-y-0'>
           {/* Social Media Icons */}
           <div className='flex space-x-4 text-white text-lg md:mb-4 mt-2 md:mt-0'>
-            <FaFacebookF />
-            <FaInstagram />
-            <FaTwitter />
-            <FaTiktok />
-            <FaYoutube />
+            <a
+              href='https://www.facebook.com/share/18bReVwf3c/?mibextid=wwXIfr'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href='https://www.instagram.com/onemillionlandlord?igsh=MWI5cXIydDh2eGs2ag=='
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href='https://x.com/1millilandlord?s=21'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaXTwitter />
+            </a>
+            <a
+              href='https://youtube.com/@onemillionlandlord4122?si=Wosm5n_tivQPwmlO'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaYoutube />
+            </a>
           </div>
           <div className='flex flex-col gap-4 items-start md:items-end'>
             <p className='text-[#94A3B8] text-sm'>
@@ -92,7 +113,7 @@ const Footer = ({
               onClick={handleCallClick}
               className='text-[#94A3B8] text-sm cursor-pointer'
             >
-              +234 803 733 9281
+              +234 902 625 9544
             </p>
           </div>
         </div>
