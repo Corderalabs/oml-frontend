@@ -21,12 +21,11 @@ const images = [
       "The  Brixx  is  located  in  Fadeyi,  Lagos,  making  it perfectly  situated  in  a  serene  environment  with  all  the necessary amenities and close proximity to two institutions which increases the  demand of rental properties with high capital  and  rental  appreciation  which  Increases  by  20% annually.",
   },
   {
-    name: "Emmanuel Heights",
-    jpg: "/PRP-Ilupeju-7.png",
-    // pdf: "/cardiff-courts-brochure.pdf",
-    pdf: "/EMMANUEL-HEIGHTS-BROCHURE.pdf",
+    name: "Timas Court",
+    jpg: "/Timas_court.jpg",
+    pdf: "/Timas_Court.pdf",
     message:
-      "EMMANUEL HEIGHTS is located at Ilupeju, Lagos. Within the axis of Town planning way, Tinubu road, Ilupeju bypass, Coker road, and Ilupeju Industrial Avenue which are all popular routesin Ilupeju.",
+      "Timas Court is located in Gbagada, Lagos, making it perfectly situated in a serene environment with all the necessary amenities and close proximity to major infrastructure. This creates a harmonious balance of modern living and convenience",
   },
 ];
 
