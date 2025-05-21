@@ -2,7 +2,7 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 import ErrorMessage from "@/components/ErrorMessage"; // your error message component
-import useSubmit from "../hooks/useSubmit";
+import useSubmit from "../apply/hooks/useSubmit";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
