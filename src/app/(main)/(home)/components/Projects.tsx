@@ -3,9 +3,10 @@ import React, { useCallback, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import { brics, brics2, cardiff } from "@/utils/image";
+// import { brics, brics2, cardiff } from "@/utils/image";
 import Overlay from "./Overlay";
 import Link from "next/link";
+import { projects } from "@/lib/data";
 
 const Project = ({
   sectionRef,
@@ -19,11 +20,11 @@ const Project = ({
     dragFree: true,
   });
 
-  const projects = [
-    { thumbnail: brics, images: [brics, brics2, cardiff, brics2] },
-    { thumbnail: brics2, images: [brics, brics2, cardiff, brics2] },
-    { thumbnail: cardiff, images: [brics, brics2, cardiff, brics2] },
-  ];
+  // const projects = [
+  //   { thumbnail: brics, images: [brics, brics2, cardiff, brics2] },
+  //   { thumbnail: brics2, images: [brics, brics2, cardiff, brics2] },
+  //   { thumbnail: cardiff, images: [brics, brics2, cardiff, brics2] },
+  // ];
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -105,9 +106,14 @@ const Project = ({
                       height={500}
                     />
                     <div className='absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center'>
-                      <span className='text-white font-medium text-lg'>
-                        View Gallery
-                      </span>
+                      <div className="flex flex-col gap-4">
+                        <span className='text-white font-medium text-2xl'>
+                          {project.label}
+                        </span>
+                        <span className='text-white font-medium text-lg'>
+                          View Gallery
+                        </span>
+                      </div>
                     </div>
                   </button>
                 </div>
