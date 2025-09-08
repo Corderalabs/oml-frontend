@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { brixx1, newly_completed_tag, ongoing_tag } from "@/utils/image";
 
 // Updated images array with PDF paths
 const images = [
@@ -10,6 +11,7 @@ const images = [
     name: "Mc-Allen Residence",
     jpg: "/m1.jpg",
     pdf: "/mc-allen-brochure.pdf", // Add your PDF paths
+    tag: newly_completed_tag,
     message:
       "Mc-Allen Residence is located in Shomolu, Lagos, making it perfectly  situated  in  a  serene  environment  with  all  the necessary  amenities  and  close  proximity  to  major infrastructure.  This  creates  a  harmonious  balance  of modern living and convenience.",
   },
@@ -17,6 +19,7 @@ const images = [
     name: "The Brixx",
     jpg: "/m3.jpg",
     pdf: "/brixx-brochure.pdf",
+    tag: ongoing_tag,
     message:
       "The  Brixx  is  located  in  Fadeyi,  Lagos,  making  it perfectly  situated  in  a  serene  environment  with  all  the necessary amenities and close proximity to two institutions which increases the  demand of rental properties with high capital  and  rental  appreciation  which  Increases  by  20% annually.",
   },
@@ -24,6 +27,7 @@ const images = [
     name: "Timas Court",
     jpg: "/Timas_court.jpg",
     pdf: "/Timas_Court.pdf",
+    tag: ongoing_tag,
     message:
       "Timas Court is located in Gbagada, Lagos, making it perfectly situated in a serene environment with all the necessary amenities and close proximity to major infrastructure. This creates a harmonious balance of modern living and convenience",
   },
@@ -84,7 +88,7 @@ const Hero = () => {
             {/* Logo in Top Left Corner */}
             <div className='absolute top-5 -left-[4px] z-10'>
               <Image
-                src='/Tag.png' // Replace with your logo path in public folder
+                src={image.tag} // Replace with your logo path in public folder
                 alt='tag'
                 width={148} // Adjust size as needed
                 height={32}
